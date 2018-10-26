@@ -82,6 +82,7 @@
             this.btnTaBortKat.TabIndex = 3;
             this.btnTaBortKat.Text = "Ta bort";
             this.btnTaBortKat.UseVisualStyleBackColor = true;
+            this.btnTaBortKat.Click += new System.EventHandler(this.btnTaBortKat_Click);
             // 
             // lblKategori
             // 

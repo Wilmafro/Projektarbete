@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KategoriKlasser;
 
 namespace Interface
 {
@@ -30,6 +31,28 @@ namespace Interface
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTaBortKat_Click(object sender, EventArgs e)
+        {
+          
+            var lista = new Kategorier();
+            if (tbKategori.Text != "")
+            {
+                int i = 0;
+                while (i <= lbKategori.Items.Count)
+                {
+                    var removeKat = tbKategori.Text;
+                    var kat = new Kategori();
+                    kat.KategoriChanged += delegate (string newKat)
+                    {
+                        lista.remove(newKat);
+                    };
+                    kat.ChangeKategori("Ny kategori tillagd");
+
+
+                }
+            }
         }
     }
 }
