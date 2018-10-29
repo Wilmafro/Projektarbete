@@ -13,6 +13,8 @@ namespace Interface
 {
     public partial class Form1 : Form
     {
+        public List<Kategori> kategorier = new Kategorier();
+
         public Form1()
         {
             InitializeComponent();
@@ -35,24 +37,9 @@ namespace Interface
 
         private void btnTaBortKat_Click(object sender, EventArgs e)
         {
-          
-            var lista = new Kategorier();
-            if (tbKategori.Text != "")
-            {
-                int i = 0;
-                while (i <= lbKategori.Items.Count)
-                {
-                    var removeKat = tbKategori.Text;
-                    var kat = new Kategori();
-                    kat.KategoriChanged += delegate (string newKat)
-                    {
-                        lista.Remove(newKat);
-                    };
-                    kat.ChangeKategori("Ny kategori tillagd");
 
+            
 
-                }
-            }
         }
 
         private void btnAndraKat_Click(object sender, EventArgs e)
@@ -62,6 +49,24 @@ namespace Interface
 
             // Show the settings form
             settingsForm.Show();
+        }
+
+        private void createLista()
+        {
+            if (!string.IsNullOrEmpty(tbKategori.Text))
+            {
+                var newItem = new Kategori{ KategoriNamn = tbKategori.Text };
+                kategorier.Add(newItem);
+                tbKategori.Text = "";
+                lbKategori.Items.Add(newItem.KategoriNamn);
+            }
+
+
+        }
+
+        private void btnLaggTillKat_Click(object sender, EventArgs e)
+        {
+            createLista();
         }
     }
 }
