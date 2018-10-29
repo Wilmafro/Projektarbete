@@ -68,5 +68,11 @@ namespace Interface
         {
             createLista();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lvPodcast.View = View.Details;
+            lvPodcast.FullRowSelect = true;
+        }
     }
 }
