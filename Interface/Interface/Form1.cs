@@ -54,5 +54,14 @@ namespace Interface
                 }
             }
         }
+
+        private void btnAndraKat_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the Form2 class
+            Form2 settingsForm = new Form2();
+
+            // Show the settings form
+            settingsForm.Show();
+        }
     }
 }
