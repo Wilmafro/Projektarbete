@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KategoriKlasser;
+using Interface.Business;
 
 namespace Interface
 {
@@ -46,7 +46,7 @@ namespace Interface
                     var kat = new Kategori();
                     kat.KategoriChanged += delegate (string newKat)
                     {
-                        lista.remove(newKat);
+                        lista.Remove(newKat);
                     };
                     kat.ChangeKategori("Ny kategori tillagd");
 
