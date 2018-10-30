@@ -37,8 +37,7 @@ namespace Interface
 
         private void btnTaBortKat_Click(object sender, EventArgs e)
         {
-
-            
+            removeFromLista();
 
         }
 
@@ -60,8 +59,12 @@ namespace Interface
                 tbKategori.Text = "";
                 lbKategori.Items.Add(newItem.KategoriNamn);
             }
+        }
 
-
+        private void removeFromLista()
+        {
+            kategorier.RemoveAll(k => k.KategoriNamn == lbKategori.SelectedItem.ToString());
+            lbKategori.Items.Remove(lbKategori.SelectedItem);
         }
 
         private void btnLaggTillKat_Click(object sender, EventArgs e)
