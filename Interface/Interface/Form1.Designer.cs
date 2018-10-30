@@ -43,7 +43,7 @@
             this.lbPoddAvsnitt = new System.Windows.Forms.ListBox();
             this.lblPoddcast = new System.Windows.Forms.Label();
             this.btnAndraKat = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvPodcast = new System.Windows.Forms.ListView();
             this.Avsnitt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Namn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Frekvens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -198,17 +198,16 @@
             this.btnAndraKat.UseVisualStyleBackColor = true;
             this.btnAndraKat.Click += new System.EventHandler(this.btnAndraKat_Click);
             // 
-            // listView1
+            // lvPodcast
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvPodcast.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Avsnitt,
             this.Namn,
             this.Frekvens,
             this.Kategori});
-            this.listView1.Location = new System.Drawing.Point(63, 28);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listView1.Location = new System.Drawing.Point(42, 18);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(520, 169);
+            this.listView1.Size = new System.Drawing.Size(348, 111);
             this.listView1.TabIndex = 18;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -236,7 +235,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1044, 548);
+            this.ClientSize = new System.Drawing.Size(696, 356);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnAndraKat);
             this.Controls.Add(this.lblPoddcast);
@@ -277,7 +276,7 @@
         private System.Windows.Forms.ListBox lbPoddAvsnitt;
         private System.Windows.Forms.Label lblPoddcast;
         private System.Windows.Forms.Button btnAndraKat;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvPodcast;
         private System.Windows.Forms.ColumnHeader Avsnitt;
         private System.Windows.Forms.ColumnHeader Namn;
         private System.Windows.Forms.ColumnHeader Frekvens;
