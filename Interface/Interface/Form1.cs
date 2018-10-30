@@ -58,18 +58,26 @@ namespace Interface
                 kategorier.Add(newItem);
                 tbKategori.Text = "";
                 lbKategori.Items.Add(newItem.KategoriNamn);
+                cbKategori.Items.Add(newItem.KategoriNamn);
             }
         }
 
         private void removeFromLista()
         {
-            kategorier.RemoveAll(k => k.KategoriNamn == lbKategori.SelectedItem.ToString());
-            lbKategori.Items.Remove(lbKategori.SelectedItem);
+            var taBort = lbKategori.SelectedItem;
+            kategorier.RemoveAll(k => k.KategoriNamn == taBort.ToString());
+            lbKategori.Items.Remove(taBort);
+            cbKategori.Items.Remove(taBort);
         }
 
         private void btnLaggTillKat_Click(object sender, EventArgs e)
         {
             createLista();
+        }
+
+        private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
