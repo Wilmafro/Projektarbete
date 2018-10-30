@@ -53,7 +53,7 @@ namespace Interface
             uppdateKategorier();
         }
 
-       
+
         private void btnLaggTillKat_Click(object sender, EventArgs e)
         {
             createLista();
@@ -61,7 +61,7 @@ namespace Interface
 
         private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void createLista()
@@ -86,14 +86,14 @@ namespace Interface
             var kat = lbKategori.SelectedItem;
             string newName = tbKategori.Text;
 
-            foreach(var k in kategorier)
+            foreach (var k in kategorier)
             {
-                if(k.KategoriNamn.Equals(kat))
+                if (k.KategoriNamn.Equals(kat))
                 {
                     k.KategoriNamn = newName;
-                }            
-             }          
-           
+                }
+            }
+
         }
 
         private void uppdateKategorier()
@@ -112,18 +112,23 @@ namespace Interface
 
         private void lblInfoPodd_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void cbTidInt_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             lvPodcast.View = View.Details;
             lvPodcast.FullRowSelect = true;
+        }
+
+        private void lvPodcast_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
