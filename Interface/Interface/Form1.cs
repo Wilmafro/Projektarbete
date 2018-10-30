@@ -43,18 +43,38 @@ namespace Interface
 
         private void btnAndraKat_Click(object sender, EventArgs e)
         {
+            changeInLista();
+            lbKategori.Items.Clear();
+
+            foreach(var k in kategorier)
+            {
+                lbKategori.Items.Add(k.KategoriNamn);
+            }
+            tbKategori.Text = "";
+
             // Create a new instance of the Form2 class
-            Form2 settingsForm = new Form2();
+            // Form2 settingsForm = new Form2();
 
             // Show the settings form
-            settingsForm.Show();
+            // settingsForm.Show();
+        }
+
+       
+        private void btnLaggTillKat_Click(object sender, EventArgs e)
+        {
+            createLista();
+        }
+
+        private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void createLista()
         {
             if (!string.IsNullOrEmpty(tbKategori.Text))
             {
-                var newItem = new Kategori{ KategoriNamn = tbKategori.Text };
+                var newItem = new Kategori { KategoriNamn = tbKategori.Text };
                 kategorier.Add(newItem);
                 tbKategori.Text = "";
                 lbKategori.Items.Add(newItem.KategoriNamn);
@@ -70,14 +90,20 @@ namespace Interface
             cbKategori.Items.Remove(taBort);
         }
 
-        private void btnLaggTillKat_Click(object sender, EventArgs e)
+        private void changeInLista()
         {
-            createLista();
+            var kat = lbKategori.SelectedItem;
+            string newName = tbKategori.Text;
+
+            foreach(var k in kategorier)
+            {
+                if(k.KategoriNamn.Equals(kat))
+                {
+                    k.KategoriNamn = newName;
+                }            
+             }          
+           
         }
 
-        private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
