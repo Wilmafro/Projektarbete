@@ -119,6 +119,7 @@
             this.lblInfoPodd.Size = new System.Drawing.Size(174, 20);
             this.lblInfoPodd.TabIndex = 6;
             this.lblInfoPodd.Text = "Beskrivning av avsnittet";
+            this.lblInfoPodd.Click += new System.EventHandler(this.lblInfoPodd_Click);
             // 
             // tbPodd
             // 
@@ -134,6 +135,7 @@
             this.cbTidInt.Name = "cbTidInt";
             this.cbTidInt.Size = new System.Drawing.Size(121, 28);
             this.cbTidInt.TabIndex = 9;
+            this.cbTidInt.SelectedIndexChanged += new System.EventHandler(this.cbTidInt_SelectedIndexChanged);
             // 
             // cbKategori
             // 

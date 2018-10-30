@@ -18,6 +18,12 @@ namespace Interface
         public Form1()
         {
             InitializeComponent();
+
+            cbTidInt.Items.Add("5 minuter");
+            cbTidInt.Items.Add("10 minuter");
+            cbTidInt.Items.Add("15 minuter");
+            cbTidInt.Items.Add("30 minuter");
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -45,12 +51,6 @@ namespace Interface
         {
             changeInLista();
             uppdateKategorier();
-
-            // Create a new instance of the Form2 class
-            // Form2 settingsForm = new Form2();
-
-            // Show the settings form
-            // settingsForm.Show();
         }
 
        
@@ -100,6 +100,7 @@ namespace Interface
         {
             lbKategori.Items.Clear();
             cbKategori.Items.Clear();
+
             foreach (var k in kategorier)
             {
                 lbKategori.Items.Add(k.KategoriNamn);
@@ -109,5 +110,14 @@ namespace Interface
             tbKategori.Text = "";
         }
 
+        private void lblInfoPodd_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbTidInt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
