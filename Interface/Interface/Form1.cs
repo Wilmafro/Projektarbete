@@ -18,6 +18,12 @@ namespace Interface
         public Form1()
         {
             InitializeComponent();
+
+            cbTidInt.Items.Add("5 minuter");
+            cbTidInt.Items.Add("10 minuter");
+            cbTidInt.Items.Add("15 minuter");
+            cbTidInt.Items.Add("30 minuter");
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -37,36 +43,81 @@ namespace Interface
 
         private void btnTaBortKat_Click(object sender, EventArgs e)
         {
-
-            
+            removeFromLista();
 
         }
 
         private void btnAndraKat_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the Form2 class
-            Form2 settingsForm = new Form2();
+            changeInLista();
+            uppdateKategorier();
+        }
 
-            // Show the settings form
-            settingsForm.Show();
+       
+        private void btnLaggTillKat_Click(object sender, EventArgs e)
+        {
+            createLista();
+        }
+
+        private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void createLista()
         {
             if (!string.IsNullOrEmpty(tbKategori.Text))
             {
-                var newItem = new Kategori{ KategoriNamn = tbKategori.Text };
+                var newItem = new Kategori { KategoriNamn = tbKategori.Text };
                 kategorier.Add(newItem);
-                tbKategori.Text = "";
-                lbKategori.Items.Add(newItem.KategoriNamn);
+                uppdateKategorier();
             }
-
-
         }
 
-        private void btnLaggTillKat_Click(object sender, EventArgs e)
+        private void removeFromLista()
         {
-            createLista();
+            var taBort = lbKategori.SelectedItem;
+            kategorier.RemoveAll(k => k.KategoriNamn == taBort.ToString());
+            uppdateKategorier();
+        }
+
+        private void changeInLista()
+        {
+            var kat = lbKategori.SelectedItem;
+            string newName = tbKategori.Text;
+
+            foreach(var k in kategorier)
+            {
+                if(k.KategoriNamn.Equals(kat))
+                {
+                    k.KategoriNamn = newName;
+                }            
+             }          
+           
+        }
+
+        private void uppdateKategorier()
+        {
+            lbKategori.Items.Clear();
+            cbKategori.Items.Clear();
+
+            foreach (var k in kategorier)
+            {
+                lbKategori.Items.Add(k.KategoriNamn);
+                cbKategori.Items.Add(k.KategoriNamn);
+            }
+
+            tbKategori.Text = "";
+        }
+
+        private void lblInfoPodd_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cbTidInt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
