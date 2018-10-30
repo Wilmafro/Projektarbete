@@ -44,13 +44,7 @@ namespace Interface
         private void btnAndraKat_Click(object sender, EventArgs e)
         {
             changeInLista();
-            lbKategori.Items.Clear();
-
-            foreach(var k in kategorier)
-            {
-                lbKategori.Items.Add(k.KategoriNamn);
-            }
-            tbKategori.Text = "";
+            uppdateKategorier();
 
             // Create a new instance of the Form2 class
             // Form2 settingsForm = new Form2();
@@ -76,9 +70,7 @@ namespace Interface
             {
                 var newItem = new Kategori { KategoriNamn = tbKategori.Text };
                 kategorier.Add(newItem);
-                tbKategori.Text = "";
-                lbKategori.Items.Add(newItem.KategoriNamn);
-                cbKategori.Items.Add(newItem.KategoriNamn);
+                uppdateKategorier();
             }
         }
 
@@ -86,8 +78,7 @@ namespace Interface
         {
             var taBort = lbKategori.SelectedItem;
             kategorier.RemoveAll(k => k.KategoriNamn == taBort.ToString());
-            lbKategori.Items.Remove(taBort);
-            cbKategori.Items.Remove(taBort);
+            uppdateKategorier();
         }
 
         private void changeInLista()
@@ -103,6 +94,19 @@ namespace Interface
                 }            
              }          
            
+        }
+
+        private void uppdateKategorier()
+        {
+            lbKategori.Items.Clear();
+            cbKategori.Items.Clear();
+            foreach (var k in kategorier)
+            {
+                lbKategori.Items.Add(k.KategoriNamn);
+                cbKategori.Items.Add(k.KategoriNamn);
+            }
+
+            tbKategori.Text = "";
         }
 
     }
