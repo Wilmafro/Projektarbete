@@ -46,6 +46,7 @@ namespace Interface
         private void btnTaBortKat_Click(object sender, EventArgs e)
         {  
                 removeFromLista();
+                
         }
 
         private void btnAndraKat_Click(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace Interface
                 changeInLista();
             }
             catch (textBoxNull t) { lblInfoPodd.Text = t.Message; }
-
+            
         }
 
 
@@ -69,6 +70,7 @@ namespace Interface
                 createLista();
             }
              catch (textBoxNull t) { lblInfoPodd.Text = t.Message; }
+            
         }
 
         private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,8 +100,7 @@ namespace Interface
             var kat = lbKategori.SelectedItem;
             string newName = tbKategori.Text;
 
-            
-                foreach (var k in kategorier)
+             foreach (var k in kategorier)
                 {
                     if (k.KategoriNamn.Equals(kat))
                     {
