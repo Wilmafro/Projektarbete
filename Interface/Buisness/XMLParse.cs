@@ -5,12 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-
 namespace Interface.Business
 {
     public class XMLParse
     {
-        private Databas.XMLOpenCreate saveOpen = new Database.XMLOpenCreate();
+        private Databas.XMLOpenCreate saveOpen = new Databas.XMLOpenCreate();
 
         public void save(Kategorier kategorier, FeedList feedList)
         {
