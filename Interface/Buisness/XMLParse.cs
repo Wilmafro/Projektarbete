@@ -9,7 +9,7 @@ namespace Interface.Business
 {
     public class XMLParse
     {
-        private Database.XMLOpenCreate saveOpen = new Database.XMLOpenCreate();
+        private Databas.XMLOpenCreate saveOpen = new Databas.XMLOpenCreate();
 
         public void save(Kategorier kategorier, FeedList feedList)
         {

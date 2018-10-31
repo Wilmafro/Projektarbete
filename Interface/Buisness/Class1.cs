@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Interface.Business
+namespace Buisness
 {
     public class XMLParse
     {
-        private Data.XMLOpenCreate saveOpen = new Data.XMLOpenCreate();
+        private Databas.XMLOpenCreate saveOpen = new Databas.XMLOpenCreate();
 
         public void save(Kategorier kategorier, FeedList feedList)
         {
