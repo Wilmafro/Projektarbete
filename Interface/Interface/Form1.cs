@@ -44,9 +44,8 @@ namespace Interface
         }
 
         private void btnTaBortKat_Click(object sender, EventArgs e)
-        {
-            removeFromLista();
-
+        {  
+                removeFromLista();
         }
 
         private void btnAndraKat_Click(object sender, EventArgs e)
@@ -56,7 +55,7 @@ namespace Interface
                 validering.check_Input(tbKategori.Text);
                 changeInLista();
             }
-            catch { throw (new textBoxNull("hejoo")); }
+            catch (textBoxNull t) { lblInfoPodd.Text = t.Message; }
 
         }
 
@@ -69,7 +68,7 @@ namespace Interface
                 validering.check_Input(tbKategori.Text);
                 createLista();
             }
-             catch { throw (new textBoxNull("hejoo")); }
+             catch (textBoxNull t) { lblInfoPodd.Text = t.Message; }
         }
 
         private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,19 +77,20 @@ namespace Interface
         }
 
         private void createLista()
-        {
-            
+        {     
                 var newItem = new Kategori { KategoriNamn = tbKategori.Text };
                 kategorier.Add(newItem);
                 uppdateKategorier();
-            
         }
 
         private void removeFromLista()
         {
-            var taBort = lbKategori.SelectedItem;
-            kategorier.RemoveAll(k => k.KategoriNamn == taBort.ToString());
-            uppdateKategorier();
+            if (lbKategori.SelectedIndex == -1) {
+                var taBort = lbKategori.SelectedItem;
+                kategorier.RemoveAll(k => k.KategoriNamn == taBort.ToString());
+                uppdateKategorier();
+            }
+            else { throw (new textBoxNull()); }              
         }
 
         private void changeInLista()

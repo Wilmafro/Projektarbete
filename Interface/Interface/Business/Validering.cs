@@ -16,19 +16,21 @@ namespace Interface.Business
             if (input == null)
             {
                 return false;
-                throw (new textBoxNull("heeejo"));               
+                throw (new textBoxNull());               
             }
             else
             {
                 return true;
             }
         }
+
+
     }
 
     public class textBoxNull : Exception
     {
-        public textBoxNull(string message) : base(message)
-        {
-        }
+        public textBoxNull() : base("wieieiieei!") { }
+        
+        
     }
 }

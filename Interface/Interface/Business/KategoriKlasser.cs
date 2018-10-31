@@ -8,8 +8,7 @@ namespace Interface.Business
 {
     public class Kategori
     {
-        public string KategoriNamn { get; set; }
-       
+        public string KategoriNamn { get; set; }  
     }
 
     public class Kategorier : List<Kategori>
