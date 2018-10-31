@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Interface.Business;
 
+
 namespace Interface
 {
     public partial class Form1 : Form
     {
         public List<Kategori> kategorier = new Kategorier();
+        public Validering validering = new Validering();
 
         public Form1()
         {
@@ -49,14 +51,25 @@ namespace Interface
 
         private void btnAndraKat_Click(object sender, EventArgs e)
         {
-            changeInLista();
-            uppdateKategorier();
+            try
+            {
+                validering.check_Input(tbKategori.Text);
+                changeInLista();
+            }
+            catch { throw (new textBoxNull("hejoo")); }
+
         }
 
 
         private void btnLaggTillKat_Click(object sender, EventArgs e)
         {
-            createLista();
+
+            try
+            {
+                validering.check_Input(tbKategori.Text);
+                createLista();
+            }
+             catch { throw (new textBoxNull("hejoo")); }
         }
 
         private void cbKategori_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,12 +79,11 @@ namespace Interface
 
         private void createLista()
         {
-            if (!string.IsNullOrEmpty(tbKategori.Text))
-            {
+            
                 var newItem = new Kategori { KategoriNamn = tbKategori.Text };
                 kategorier.Add(newItem);
                 uppdateKategorier();
-            }
+            
         }
 
         private void removeFromLista()
@@ -86,14 +98,16 @@ namespace Interface
             var kat = lbKategori.SelectedItem;
             string newName = tbKategori.Text;
 
-            foreach (var k in kategorier)
-            {
-                if (k.KategoriNamn.Equals(kat))
+            
+                foreach (var k in kategorier)
                 {
-                    k.KategoriNamn = newName;
+                    if (k.KategoriNamn.Equals(kat))
+                    {
+                        k.KategoriNamn = newName;
+                    }
                 }
-            }
-
+                uppdateKategorier();
+                  
         }
 
         private void uppdateKategorier()
